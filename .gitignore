@@ -27,3 +27,6 @@ dist-ssr
 images/3D/
 tools/blender/in/
 tools/blender/out/
+
+# Backups de conversa/sessão
+BACKUP-*.md
