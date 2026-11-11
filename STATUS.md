@@ -1,6 +1,90 @@
 # STATUS - Lancha Jet Quadriciclo
 
-## Data: 11/11/2026 (sessão 2)
+## Data: 11/11/2026 (sessão 3 — Modelos 3D + Vistoria mobile)
+
+### FASE 3D CONCLUÍDA — modelos 3D para TODOS os 29 produtos
+
+**Pipeline**: gerador paramétrico headless no Blender 5.0 (`tools/blender/boatforge.py`) —
+3 arquétipos (jetski / lancha open / cabinada) parametrizados por produto (comprimento,
+cores do casco/acento, motor de popa vs. sterndrive, torre de wake). **Não é fotoreal**:
+é uma visualização estilizada e coerente para o cliente girar/zoom e ver cores/forma.
+
+- `boatforge.py`: CONFIG com os 29 slugs (mesma ordem do products.js), modos
+  `preview|export|all` via `blender.exe --background --factory-startup --python boatforge.py -- <modo> <outdir> [slug|ALL]`
+- Export normalizado: modelo centrado em X/Y e assentado em z=0 (enquadramento previsível no viewer)
+- 29 GLBs em `public/models/` (204–301 KB cada, bem abaixo do alvo de ~2 MB)
+- Validação visual: cada arquétipo inspecionado em 2 ângulos (`previews/*.png` e `*-top.png`)
+
+**Bugs de geometria corrigidos durante a iteração** (registrar: todos os renders "flutuando"
+tinham UMA causa): `rounded_box` escalava por `size/2` → **todos os boxes nasciam com metade
+do tamanho** (bancos flutuando, cabine miúda, motor de popa minúsculo). Correção de uma linha
+(`ob.scale = size`) consertou em cascata. Também: `matrix_world` stale (chamar
+`bpy.context.view_layer.update()` antes de medir bbox), câmera invertida (`center - campos`),
+RGBA com 5 itens, `rc` função vs. valor, faixa da borda duplicada, banco do jetski
+re-empilhado por referência explícita, cabine realocada para o terço dianteiro (a caixa
+antiga "flutuava" sobre a proa), motor de popa reproporcionado (carenagem+haste+turbina+skeg+hélice).
+
+### Viewer 3D (`src/3d/Product3DViewer.jsx`) — implementado de verdade
+
+- react-three-fiber + drei (`useGLTF`, `OrbitControls`, `ContactShadows`, `useProgress`)
+- **Sem `Environment preset`** (dependeria de CDN) — luzes próprias (ambient/hemi/2 directional)
+- Auto-enquadramento por `Box3` (câmera alvo no centro, distância 2,1×maxDim), auto-rotação 0,9
+- Toggle **3D ↔ Fotos** na toolbar (3D é o modo padrão quando o produto tem modelo)
+- Loading overlay com % (`useProgress`); erro de carga → `ModelErrorBoundary` → volta
+  automaticamente pra galeria de fotos (esconde o botão 3D)
+- `useGLTF.preload` no mount; fullscreen mantido; `ContactShadows` com `frames={1}` (cena estática)
+- Lint limpo: mutação de câmera isolada em helper `frameCamera(cam, ctl, ...)` (parâmetros
+  não acionam a regra de imutabilidade do oxlint)
+
+### VISTORIA MOBILE (relato do colega: sem seta pra voltar; imagens/textos bugam ao deslizar)
+
+1. **Seta de voltar (bug #1)** — `Header.jsx` ganhou botão circular `header__back`
+   (ArrowLeft) em TODAS as páginas internas (produto → /catalogo, catálogo → /);
+   escondido no desktop ≥1024px. Também corrigido telefone placeholder
+   "(16) 99999-9999" → **(16) 99401-3303** no menu mobile.
+2. **Imagens/textos bugam ao deslizar (bug #2)** — causas encontradas e corrigidas:
+   - Setas de trocar foto do Produto ficavam `opacity: 0` até `:hover` — **em touch
+     nunca apareciam** (agora visíveis com `@media (hover: none)`)
+   - **Swipe de verdade** nas fotos (ProductDetail principal + modal, e galeria do
+     viewer 3D): deltaX ≥48px troca de imagem (`touch-action: pan-y` preserva o scroll
+     vertical; sem "borrachão" lateral)
+   - `img { -webkit-user-drag: none; user-select: none }` + `-webkit-tap-highlight-color:
+     transparent` no global.css (imagens não "grudam" no dedo, sem flash azul de tap)
+   - Hero 100vh → **100svh** (Home) e hero do catálogo 400px inline fixo → CSS responsivo
+     (34svh no mobile) — o salto/estouro da barra de URL do iOS desaparece
+   - Galeria sticky desativada no mobile (empilha antes das infos); modal de imagem
+     `80dvh` + botão fechar com `safe-area-inset-top`
+   - Botão morto "Ver em 3D (Fase 2)" do ProductDetail removido (o toggle real está
+     dentro do viewer)
+3. `products.js`: 29 × `model3d` preenchidos pós-array (`'/models/' + p.slug + '.glb'`)
+   — verificado: 29/29 com arquivo existente em `public/models/`, paths únicos.
+
+### Validação desta sessão
+
+- ✅ `npm run build` (vite/rolldown, ~6s, sem erros)
+- ✅ `npm run lint` (oxlint, ZERO warnings)
+- ✅ `node import`: 29 produtos, 29 model3d, paths únicos, 29/29 GLBs existentes
+- ✅ 3 arquétipos renderizados em 2 ângulos e inspecionados visualmente
+
+### Pendente / requer ação do usuário
+
+1. **Validação visual (Ctrl+F5 em http://localhost:3000)**: abrir um produto →
+   ver o 3D girando, testar o botão "Fotos"/"3D", testar no celular (seta de voltar
+   no topo, swipe nas fotos, sem layout pulando).
+2. **Quadriciclos/buggys**: quando o usuário fornecer fotos/dados reais, re-adicionar os
+   produtos em `products.js` (e novos GLBs no boatforge.py, se quiser 3D também).
+3. **Opcional**: publicar via GitHub Pages (base `/Tramp-/`) — oferta feita, sem resposta.
+4. **Opcional**: iterar visual dos 3D (mais detalhes por modelo específico).
+
+### Próxima etapa
+
+Commit + push (git do GitHub Desktop), validação do usuário no navegador/celular.
+
+---
+
+## Sessões anteriores
+
+### Sessão 2 (11/11) — catálogo real
 
 ### Decisão principal: catálogo SOMENTE com produtos reais
 

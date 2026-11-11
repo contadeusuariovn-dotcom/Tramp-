@@ -38,6 +38,39 @@
   gap: var(--space-6);
 }
 
+/* Seta de voltar para paginas internas (mobile UX) */
+.header__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: calc(-1 * var(--space-3));
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--color-navy);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.header__back:hover {
+  background: rgba(7, 27, 44, 0.08);
+  transform: translateX(-2px);
+}
+
+.header__back:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px) {
+  .header__back {
+    display: none; /* no desktop ha navegacao completa e breadcrumb */
+  }
+}
+
 /* ========================================
    LOGO
    ======================================== */

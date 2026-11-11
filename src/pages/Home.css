@@ -22,6 +22,7 @@
   isolation: isolate;
   position: relative;
   min-height: 100vh;
+  min-height: 100svh; /* iOS: altura visivel real, evita salto da barra de URL */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,6 +63,7 @@
   align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .hero__text {

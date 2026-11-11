@@ -3,7 +3,7 @@
  * Lancha Jet Quadriciclo - Individual Product View
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -132,6 +132,27 @@ export default function ProductDetail() {
   const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % numImages);
   const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + numImages) % numImages);
 
+  // Swipe (touch) para trocar foto no celular
+  const touchStart = useRef(null);
+
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+
+  const onTouchEnd = (e) => {
+    if (!touchStart.current || numImages <= 1) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    // deslize horizontal >= 48px e claramente mais horizontal que vertical
+    if (Math.abs(dx) >= 48 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) nextImage();
+      else prevImage();
+    }
+  };
+
   const fallbackCopy = async (url) => {
     try {
       await navigator.clipboard.writeText(url);
@@ -233,7 +254,11 @@ export default function ProductDetail() {
             <div className="product-detail__grid">
               {/* Gallery */}
               <div className="product-detail__gallery">
-                <div className="product-detail__main-image-wrapper">
+                <div
+                  className="product-detail__main-image-wrapper"
+                  onTouchStart={onTouchStart}
+                  onTouchEnd={onTouchEnd}
+                >
                   <button
                     className="product-detail__main-image-btn"
                     onClick={() => setIsImageModalOpen(true)}
@@ -244,6 +269,7 @@ export default function ProductDetail() {
                       alt={`${product.name} - Imagem ${currentImageIndex + 1} de ${images.length}`}
                       className="product-detail__main-image"
                       loading="eager"
+                      draggable={false}
                       onError={(e) => { e.target.src = '/images/products/placeholder-product.jpg'; }}
                     />
                     {images.length > 1 && (
@@ -257,17 +283,7 @@ export default function ProductDetail() {
                     )}
                   </button>
 
-                  {/* 3D Viewer Toggle - Phase 2 */}
-                  {product.model3d && (
-                    <button className="product-detail__3d-toggle" disabled title="Visualização 3D - Fase 2">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                        <line x1="12" y1="22.08" x2="12" y2="12" />
-                      </svg>
-                      <span>Ver em 3D</span>
-                    </button>
-                  )}
+                  {/* 3D Viewer disponivel abaixo (toggle dentro do componente) */}
 
                   {/* Image Navigation */}
                   {images.length > 1 && (
@@ -487,11 +503,16 @@ export default function ProductDetail() {
                 </button>
               </>
             )}
-            <div className="product-detail__image-modal-content">
+            <div
+              className="product-detail__image-modal-content"
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
               <img
                 src={images[currentImageIndex]}
                 alt={`${product.name} - Imagem ${currentImageIndex + 1} de ${images.length}`}
                 className="product-detail__image-modal-image"
+                draggable={false}
               />
               <p className="product-detail__image-modal-caption">{currentImageIndex + 1} / {images.length}</p>
             </div>

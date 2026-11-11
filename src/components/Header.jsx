@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   Anchor,
+  ArrowLeft,
   Phone,
   MessageSquare
 } from 'lucide-react';
@@ -31,6 +32,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Seta "voltar" nas paginas internas: produto -> catalogo, catalogo -> inicio
+  const isHome = location.pathname === '/';
+  const backTarget = location.pathname.startsWith('/produto/') ? '/catalogo' : '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -48,6 +53,17 @@ export default function Header() {
       role="banner"
     >
       <div className="header__container container">
+        {/* Seta de voltar (paginas internas) */}
+        {!isHome && (
+          <Link
+            to={backTarget}
+            className="header__back"
+            aria-label="Voltar para a página anterior"
+          >
+            <ArrowLeft size={20} aria-hidden="true" />
+          </Link>
+        )}
+
         {/* Logo/Brand */}
         <Link to="/" className="header__logo" aria-label="Lancha Jet Quadriciclo - Início">
           <svg className="header__logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
@@ -185,7 +201,7 @@ export default function Header() {
             </p>
             <p className="header__mobile-phone">
               <Phone size={16} aria-hidden="true" />
-              (16) 99999-9999
+              (16) 99401-3303
             </p>
           </div>
         </div>

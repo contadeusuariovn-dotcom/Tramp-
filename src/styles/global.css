@@ -45,6 +45,13 @@ body {
   /* clip (e nao hidden): nao cria scroll container, entao position: sticky funciona.
      overflow-x: hidden no body quebrava o sticky da barra de filtros do catalogo. */
   overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile UX: imagem nao "gruda"/arrasta ao deslizar o dedo */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 /* Estrutura da aplicacao: coluna flex para o footer colar no fim da pagina.

@@ -96,6 +96,8 @@
   overflow: hidden;
   background: var(--color-light-gray);
   margin-bottom: var(--space-4);
+  /* scroll vertical livre; sem pan horizontal (evita "borrachao" lateral) */
+  touch-action: pan-y;
 }
 
 .product-detail__main-image-btn {
@@ -191,6 +193,13 @@
 .product-detail__main-image-wrapper:hover .product-detail__nav,
 .product-detail__nav:focus-visible {
   opacity: 1;
+}
+
+/* Touch: sem hover, as setas de foto precisam estar sempre visiveis */
+@media (hover: none) {
+  .product-detail__nav {
+    opacity: 1;
+  }
 }
 
 .product-detail__nav:hover {
@@ -703,12 +712,14 @@
 .product-detail__image-modal-content {
   max-width: 90vw;
   max-height: 80vh;
+  max-height: 80dvh;
   text-align: center;
 }
 
 .product-detail__image-modal-image {
   max-width: 100%;
   max-height: 80vh;
+  max-height: 80dvh;
   object-fit: contain;
   border-radius: var(--radius-lg);
 }
@@ -871,6 +882,13 @@
     padding: var(--space-6) 0 var(--space-12);
   }
 
+  /* Galeria nao precisa ficar sticky em tela unica (empilha antes das infos) */
+  .product-detail__gallery {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+
   .product-detail__title {
     font-size: var(--text-2xl);
   }
@@ -900,7 +918,7 @@
   .product-detail__image-modal-nav--next { right: var(--space-3); }
 
   .product-detail__image-modal-close {
-    top: var(--space-3);
+    top: calc(var(--space-3) + env(safe-area-inset-top, 0px));
     right: var(--space-3);
     width: 40px;
     height: 40px;

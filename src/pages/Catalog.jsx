@@ -138,7 +138,7 @@ export default function Catalog() {
 
       <main id="main-content" className="catalog-page">
         {/* Page Header */}
-        <section className="catalog__hero" style={{ minHeight: '400px', height: '400px' }}>
+        <section className="catalog__hero">
           <div className="catalog__hero-bg">
             <img
               src="/images/catalog/catalog-hero.jpg"

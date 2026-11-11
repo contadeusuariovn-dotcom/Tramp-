@@ -635,7 +635,10 @@
 
 @media (max-width: 768px) {
   .catalog__hero {
-    min-height: 30vh;
+    min-height: 34vh;
+    height: 34vh;
+    min-height: 34svh;
+    height: 34svh;
   }
 
   .catalog__hero-title {
