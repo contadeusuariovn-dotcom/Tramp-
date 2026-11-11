@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <rect width="1920" height="1080" fill="#071B2C"/>
+  <rect x="200" y="300" width="1520" height="480" rx="20" fill="#0D2F4E" stroke="#C5A46D" stroke-width="2"/>
+  <text x="960" y="500" font-family="Montserrat, sans-serif" font-size="48" font-weight="700" fill="#FFFFFF" text-anchor="middle">Represa de Jaguara</text>
+  <text x="960" y="570" font-family="Inter, sans-serif" font-size="24" fill="#C5A46D" text-anchor="middle">Rifaina - SP</text>
+  <text x="960" y="650" font-family="Inter, sans-serif" font-size="18" fill="#9CA3AF" text-anchor="middle">Imagem ilustrativa - Substituir por foto real</text>
+</svg>

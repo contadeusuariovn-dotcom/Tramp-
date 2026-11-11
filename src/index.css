@@ -1,0 +1,10 @@
+/**
+ * Entry stylesheet - Lancha Jet Quadriciclo
+ * Os estilos globais ficam em src/styles/global.css (importado em App.jsx).
+ *
+ * Este arquivo existe apenas para o import de main.jsx. O antigo template do
+ * Vite definia aqui `:root { background: ... }` (escondia os fundos
+ * fotograficos com z-index: -1, tornando o texto da secao Rifaina ilegivel)
+ * e um box de 1126px com text-align: center no #root (visual "quadrado").
+ * Tudo isso foi removido de proposito.
+ */

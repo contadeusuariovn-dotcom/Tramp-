@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#F3F5F6"/>
+  <rect x="100" y="75" width="600" height="300" rx="12" fill="#E8ECEF" stroke="#C5A46D" stroke-width="2"/>
+  <text x="400" y="210" font-family="Montserrat, sans-serif" font-size="32" font-weight="700" fill="#071B2C" text-anchor="middle">Categoria</text>
+  <text x="400" y="260" font-family="Inter, sans-serif" font-size="16" fill="#C5A46D" text-anchor="middle">Imagem ilustrativa</text>
+</svg>

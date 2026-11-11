@@ -1,0 +1,277 @@
+/**
+ * CSS Custom Properties (Variables) - DESIGN SYSTEM PREMIUM
+ * Lancha Jet Quadriciclo - Identidade Visual Náutica Premium
+ * Inspiração: Luxo, Liberdade, Aventura, Exclusividade
+ */
+
+:root {
+  /* ========================================
+     CORES PRIMÁRIAS - PALETA NÁUTICA PREMIUM
+     ======================================== */
+
+  /* Azuis Profundos - Identidade Principal */
+  --color-navy: #071B2C;          /* Azul-marinho principal - headers, textos principais */
+  --color-navy-light: #0A253C;    /* Hover states */
+  --color-navy-lighter: #0D2F4E;  /* Cards, backgrounds sutis */
+  --color-ocean: #123B56;         /* Azul oceano - gradientes, botões secundários */
+  --color-ocean-light: #1A4A6E;   /* Hover */
+  --color-ocean-lighter: #225A88; /* Backgrounds */
+
+  /* Tons Areia/Off-white - Sofisticação */
+  --color-sand: #F5F0E8;          /* Areia clara - backgrounds sutis */
+  --color-sand-light: #FAF6F0;    /* Background principal */
+  --color-pearl: #FDFCFA;         /* Branco pérola - cards, superfícies */
+
+  /* Brancos */
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFBFC;
+
+  /* Cinzas Neutros */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+
+  /* Dourado Discreto - Luxo & Exclusividade */
+  --color-gold: #C5A46D;          /* Dourado principal - CTAs, acentos */
+  --color-gold-light: #D4B88C;    /* Hover, highlights */
+  --color-gold-dark: #A88A5B;     /* Active, borders */
+  --color-gold-muted: #E8DCC8;    /* Backgrounds sutis, badges */
+  --color-gold-subtle: #F5EEE0;   /* Muito sutil, backgrounds */
+
+  /* Semantic Colors */
+  --color-success: #059669;
+  --color-success-light: #D1FAE5;
+  --color-warning: #D97706;
+  --color-warning-light: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-light: #FEE2E2;
+  --color-info: #2563EB;
+  --color-info-light: #DBEAFE;
+
+  /* ========================================
+     TIPOGRAFIA PREMIUM
+     ======================================== */
+
+  /* Font Families - Modernas, Elegantes, Legíveis */
+  --font-heading: 'Montserrat', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Sizes - Fluid Typography usando clamp() */
+  --text-xs: clamp(0.6875rem, 0.625rem + 0.3125vw, 0.75rem);       /* 11-12px */
+  --text-sm: clamp(0.8125rem, 0.75rem + 0.3125vw, 0.875rem);       /* 13-14px */
+  --text-base: clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem);        /* 15-16px */
+  --text-lg: clamp(1.0625rem, 1rem + 0.3125vw, 1.125rem);          /* 17-18px */
+  --text-xl: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);           /* 20-24px */
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);               /* 24-32px */
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);           /* 30-40px */
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);             /* 36-56px */
+  --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);                        /* 48-80px */
+  --text-6xl: clamp(3.75rem, 2.5rem + 6.25vw, 6rem);               /* 60-96px */
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ========================================
+     ESPAÇAMENTO - SISTEMA 4px/8px
+     ======================================== */
+
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 1.75rem;   /* 28px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-14: 3.5rem;   /* 56px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Section Spacing Responsivo */
+  --section-padding-y: clamp(4rem, 8vw, 8rem);
+  --section-padding-x: clamp(1.5rem, 5vw, 5rem);
+  --container-max: 1280px;
+  --container-narrow: 960px;
+  --container-wide: 1440px;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.375rem;   /* 6px */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-3xl: 1.5rem;    /* 24px */
+  --radius-4xl: 2rem;      /* 32px */
+  --radius-full: 9999px;
+
+  /* ========================================
+     SHADOWS - CAMADAS DE PROFUNDIDADE
+     ======================================== */
+
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 8px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 12px 24px -6px rgb(0 0 0 / 0.1), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.12), 0 8px 16px -8px rgb(0 0 0 / 0.08);
+  --shadow-2xl: 0 32px 64px -16px rgb(0 0 0 / 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.03);
+
+  /* Gold Shadows - Luxo */
+  --shadow-gold: 0 0 0 1px var(--color-gold), 0 8px 24px 0 rgb(197 164 109 / 0.25);
+  --shadow-gold-lg: 0 0 0 1px var(--color-gold), 0 16px 48px 0 rgb(197 164 109 / 0.35);
+  --shadow-gold-subtle: 0 4px 16px 0 rgb(197 164 109 / 0.15);
+
+  /* Navy Shadows */
+  --shadow-navy: 0 8px 32px 0 rgb(7 27 44 / 0.3);
+  --shadow-navy-lg: 0 16px 48px 0 rgb(7 27 44 / 0.4);
+
+  /* ========================================
+     TRANSITIONS & EASING
+     ======================================== */
+
+  --transition-instant: 75ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slowest: 700ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easing Curves Premium */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+
+  --z-hidden: -1;
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+  --z-whatsapp: 900;
+
+  /* ========================================
+     BREAKPOINTS (Referência JS)
+     ======================================== */
+
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* ========================================
+     COMPONENT SPECIFIC
+     ======================================== */
+
+  /* Header */
+  --header-height: 88px;
+  --header-height-scrolled: 76px;
+
+  /* Buttons */
+  --btn-height-sm: 40px;
+  --btn-height-md: 48px;
+  --btn-height-lg: 56px;
+  --btn-height-xl: 64px;
+
+  /* Cards */
+  --card-border: 1px solid var(--color-gray-200);
+  --card-radius: var(--radius-2xl);
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-xl);
+
+  /* Forms */
+  --input-height: 52px;
+  --input-border: 1px solid var(--color-gray-300);
+  --input-border-focus: 2px solid var(--color-ocean);
+  --input-radius: var(--radius-xl);
+
+  /* WhatsApp Button */
+  --whatsapp-size: 64px;
+  --whatsapp-size-sm: 56px;
+
+  /* Focus Ring */
+  --focus-ring: 0 0 0 3px var(--color-gold-muted);
+  --focus-ring-navy: 0 0 0 3px var(--color-navy);
+}
+
+/* ========================================
+   DARK MODE - Preparado para futuro
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode pode ser ativado futuramente */
+  }
+}
+
+/* ========================================
+   REDUCED MOTION - Acessibilidade
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-instant: 0ms;
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+    --transition-slower: 0ms;
+    --transition-slowest: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

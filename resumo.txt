@@ -1,0 +1,379 @@
+# MISSÃO: FINALIZAR SITE PROFISSIONAL — LANCHA JET QUADRICICLO
+
+Você está trabalhando no desenvolvimento do site comercial da Lancha Jet Quadriciclo, empresa localizada em Rifaina-SP.
+
+DIRETÓRIO:
+D:\TRAMP\lancha-jet
+
+SITE LOCAL:
+http://localhost:3001/
+
+INSTAGRAM OFICIAL:
+https://www.instagram.com/lanchajetquadriciclo/
+
+GITHUB PARA PUBLICAÇÃO FUTURA:
+https://github.com/contadeusuariovn-dotcom/Tramp-
+
+## REGRA PRINCIPAL
+
+O projeto já existe e possui bastante trabalho realizado.
+
+NÃO comece do zero.
+NÃO recrie o site.
+NÃO apague funcionalidades existentes.
+NÃO reescreva arquivos inteiros sem necessidade.
+NÃO desperdice tokens explicando o que pretende fazer.
+
+Analise o estado atual e CONTINUE EXATAMENTE DE ONDE PAROU.
+
+Seu objetivo é finalizar o site existente, corrigir os problemas e entregar uma apresentação comercial de alto padrão.
+
+# 1. ECONOMIA MÁXIMA DE TOKENS
+
+Estou utilizando provedores gratuitos com limites de utilização.
+
+Trabalhe da maneira mais econômica possível:
+
+- Analise somente os arquivos necessários.
+- Não releia arquivos já analisados.
+- Não envie grandes quantidades de código desnecessariamente.
+- Não repita pesquisas externas.
+- Não faça chamadas repetidas que já falharam.
+- Não execute testes redundantes.
+- Não instale bibliotecas sem necessidade.
+- Não apresente mensagens longas de progresso.
+- Não repita explicações.
+- Não recrie componentes existentes.
+- Agrupe alterações relacionadas em uma única execução.
+- Utilize os recursos e dependências que já existem.
+- Evite operações que possam consumir cotas externas.
+
+Economize tokens sem prejudicar a qualidade.
+
+Se uma operação falhar, investigue a causa uma vez, registre o problema e siga para outra tarefa possível.
+
+Não tente executar novamente solicitações que estão recebendo erros 429.
+
+Não compre créditos, não contrate APIs e não utilize serviços pagos.
+
+# 2. RECUPERAR O ESTADO ATUAL
+
+Primeiro, verifique:
+
+- Estrutura de pastas.
+- Arquivos existentes.
+- CLAUDE.md, caso exista.
+- STATUS.md, caso exista.
+- Estado atual do Git.
+- Componentes e páginas implementados.
+- Arquivos CSS.
+- Imagens disponíveis.
+
+Verifique especialmente o trabalho que estava sendo feito em global.css.
+
+Preserve as alterações já realizadas.
+
+Não reverta alterações existentes.
+
+Faça uma análise curta e comece a corrigir.
+
+# 3. IDENTIDADE VISUAL
+
+Quero um site com aparência de concessionária náutica premium.
+
+Mantenha o layout inicial que já gostei, mas melhore muito seu acabamento.
+
+Paleta:
+
+- Azul-marinho: #071B2C
+- Azul oceano: #123B56
+- Branco: #FFFFFF
+- Cinza claro: #F3F5F6
+- Dourado discreto: #C5A46D
+
+Tipografia:
+- Títulos elegantes, grandes e marcantes.
+- Textos modernos e de fácil leitura.
+- Hierarquia visual bem definida.
+
+Evite aparência de template genérico.
+
+O site precisa transmitir sofisticação, confiança, lazer e exclusividade.
+
+# 4. IMAGENS REAIS — PRIORIDADE MÁXIMA
+
+O site estava praticamente sem imagens.
+
+Foram feitas tentativas com URLs do Unsplash que retornaram 404.
+
+Também foram baixadas imagens do Picsum, mas são aleatórias e não podem ser consideradas fotografias reais dos produtos.
+
+Foram criados arquivos SVG para preenchimento visual.
+
+Verifique os arquivos existentes e corrija os caminhos.
+
+Quero fotografias relevantes de:
+
+- Rifaina-SP.
+- Represa de Jaguara.
+- Lanchas.
+- Jet skis.
+- Buggys.
+- Quadriciclos.
+- Passeios náuticos.
+
+Utilize imagens locais existentes e fotografias com autorização de uso.
+
+Não utilize imagens aleatórias do Picsum como fotografias de produtos.
+
+Não invente fotografias reais.
+
+Não repita a mesma imagem em todas as categorias.
+
+Não faça pesquisas externas excessivas.
+
+Não tente novamente URLs que já retornaram 404.
+
+Se o Auto Mode bloquear algum download, respeite a proteção e não tente contorná-la.
+
+Se não houver fotografia autorizada disponível, utilize um placeholder elegante e registre a imagem necessária em STATUS.md.
+
+Os placeholders SVG podem servir para elementos gráficos, mas não devem ser apresentados como fotografias reais.
+
+# 5. HERO — RIFAINA-SP
+
+A primeira seção é a mais importante visualmente.
+
+Quero um fundo panorâmico de Rifaina e da Represa de Jaguara.
+
+Utilize:
+- Imagem ampla.
+- Sobreposição escura sofisticada.
+- Títulos grandes.
+- Boa profundidade visual.
+- Botões elegantes.
+- Composição cinematográfica.
+
+Título:
+
+"SEU PRÓXIMO DESTINO COMEÇA NA ÁGUA."
+
+Subtítulo:
+
+"Lanchas, jet skis e veículos recreativos para transformar seus momentos de lazer em experiências inesquecíveis."
+
+A paisagem de Rifaina deve ser parte da identidade visual do site.
+
+# 6. CATÁLOGO
+
+Corrija completamente o catálogo.
+
+Categorias:
+
+- Lanchas.
+- Jet skis.
+- Buggys.
+- Quadriciclos.
+
+Implemente:
+
+- Cards profissionais.
+- Fotografias adequadas.
+- Filtros funcionais.
+- Pesquisa.
+- Página ou modal de detalhes.
+- Galeria de imagens.
+- Botões de consulta.
+- Layout responsivo.
+
+Não invente produtos, preços, marcas ou características reais.
+
+Produtos demonstrativos devem estar claramente identificados.
+
+# 7. MENU E NAVEGAÇÃO
+
+O menu do catálogo apresentava um dropdown que ficava sobre a página de maneira incorreta.
+
+Corrija:
+
+- Z-index.
+- Posicionamento.
+- Abertura e fechamento.
+- Fechamento ao clicar fora.
+- Fechamento com ESC.
+- Navegação em celular.
+- Links internos.
+
+Prefira um link direto para o catálogo, sem dropdown desnecessário.
+
+Teste todas as opções.
+
+# 8. WHATSAPP E INSTAGRAM
+
+O botão do WhatsApp não estava direcionando corretamente.
+
+O número público encontrado anteriormente foi:
+
+(16) 99401-3303
+
+Confirme se corresponde à bio oficial do Instagram antes de utilizá-lo.
+
+Caso confirmado, utilize:
+
+https://wa.me/5516994013303
+
+Configure os botões:
+
+- Contato principal.
+- Cards das categorias.
+- Detalhes dos produtos.
+- Menu.
+- Rodapé.
+
+Crie mensagens automáticas personalizadas por categoria.
+
+O Instagram oficial deve utilizar o endereço informado neste documento.
+
+Não invente contatos.
+
+# 9. EFEITOS VISUAIS
+
+Quero uma experiência moderna e sofisticada.
+
+Implemente, utilizando preferencialmente as dependências existentes:
+
+- Animações suaves de entrada.
+- Transições de páginas.
+- Efeitos de rolagem.
+- Zoom suave nas fotografias.
+- Hover nos cards.
+- Transições nos botões.
+- Parallax discreto no HERO.
+- Animações elegantes nos títulos.
+
+Não exagere.
+
+O site precisa continuar rápido, responsivo e acessível.
+
+# 10. PREPARAÇÃO PARA BLENDER
+
+Preserve a arquitetura para uma futura integração com Blender.
+
+Prepare o projeto para:
+
+- Modelos GLB e GLTF.
+- Visualização 360 graus.
+- Rotação.
+- Zoom.
+- Componente Product3DViewer.
+- Fallback para fotografias.
+
+Não crie modelos 3D falsos.
+
+Não instale ferramentas desnecessárias nesta fase.
+
+# 11. RESPONSIVIDADE
+
+O site precisa funcionar perfeitamente em:
+
+- Computadores.
+- Notebooks.
+- Tablets.
+- Celulares.
+
+Confira principalmente:
+
+- Hero.
+- Menu.
+- Catálogo.
+- Galerias.
+- Cards.
+- Formulários.
+- WhatsApp.
+- Rodapé.
+
+Não deixe elementos cortados, sobrepostos ou desalinhados.
+
+# 12. TESTES E FINALIZAÇÃO
+
+Depois de corrigir os problemas:
+
+1. Execute o projeto.
+2. Verifique as imagens.
+3. Teste o menu.
+4. Teste o catálogo.
+5. Teste os filtros.
+6. Teste o WhatsApp.
+7. Verifique o celular.
+8. Verifique os erros críticos do console.
+9. Execute o build de produção, se possível.
+
+Utilize ferramentas já instaladas.
+
+Não instale dependências apenas para realizar testes.
+
+Se algo não puder ser testado, informe claramente.
+
+# 13. DOCUMENTAÇÃO E CONTINUIDADE
+
+Crie ou atualize:
+
+CLAUDE.md
+STATUS.md
+
+O STATUS.md deve ser curto e conter:
+
+- O que foi concluído.
+- O que está pendente.
+- Problemas encontrados.
+- Arquivos modificados.
+- Próxima etapa.
+
+Isso é importante para recuperar o projeto em outra sessão caso a API fique indisponível.
+
+# 14. GITHUB E VERCEL
+
+O projeto será publicado futuramente em:
+
+https://github.com/contadeusuariovn-dotcom/Tramp-
+
+A Vercel já está conectada ao GitHub.
+
+Por enquanto, não faça deploy e não sobrescreva o repositório.
+
+Primeiro finalize a versão local para minha aprovação visual.
+
+Preserve o histórico e nunca utilize force push.
+
+# ORDEM DE EXECUÇÃO
+
+Siga esta ordem, sem ficar alternando entre tarefas:
+
+1. Recuperar o projeto.
+2. Corrigir imagens e arquivos existentes.
+3. Finalizar global.css.
+4. Melhorar o HERO de Rifaina.
+5. Corrigir menu e catálogo.
+6. Corrigir WhatsApp.
+7. Aplicar transições e efeitos.
+8. Conferir responsividade.
+9. Testar o site.
+10. Atualizar CLAUDE.md e STATUS.md.
+
+EXECUTE O TRABALHO REALMENTE.
+
+Não responda apenas que fará as alterações.
+
+Não fique repetindo que está começando.
+
+Não pare após criar um arquivo.
+
+Continue até concluir as tarefas possíveis com os recursos gratuitos disponíveis.
+
+Se a API falhar, salve todas as alterações realizadas, atualize STATUS.md e preserve o ponto de retomada.
+
+RESULTADO FINAL:
+
+Um site comercial de alto padrão para a Lancha Jet Quadriciclo, com identidade visual própria, fotografias adequadas, experiência profissional, catálogo funcional, WhatsApp integrado e preparado para receber modelos 3D futuramente.
+
+ECONOMIZE O MÁXIMO DE TOKENS POSSÍVEL, SEM REFAZER O QUE JÁ ESTÁ PRONTO.

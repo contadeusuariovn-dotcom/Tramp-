@@ -1,0 +1,9 @@
+# Lancha Jet Quadriciclo - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lanchajetquadriciclo.com.br/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
