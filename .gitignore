@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Workspaces/dependências locais de ferramentas 3D
+images/3D/
+tools/blender/in/
+tools/blender/out/

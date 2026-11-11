@@ -1,5 +1,62 @@
 # STATUS - Lancha Jet Quadriciclo
 
+## Data: 11/11/2026 (sessão 4 — Modelos 3D prontos CC0 + recolor)
+
+### Contexto
+O usuário reprovou os modelos paramétricos da sessão 3 ("FICOU HORRIVEL... TODAS SEM
+TEXTURAS NADA HAVER COM AS FOTOS"). Decisão: **modelos prontos de qualidade (CC0)**
++ variantes coloridas por produto. Aviso honesto mantido: são **genéricos ilustrativos**
+(não são os produtos exatos) — o site agora tem nota "consulte as fotos" sob o viewer.
+
+### Novo pipeline (`tools/blender/`)
+- **`preview_candidates.py`** — inspeção de GLBs candidatos (import, bbox/tris/materiais,
+  2 renders Cycles). Avaliou 8 candidatos de 3 fontes.
+- **`texture_palette.py`** — paleta dominante das texturas basecolor (HSV vetorizado com
+  numpy/foreach_get) — base para o recolor seletivo.
+- **`variant_forge.py`** — gerador de variantes: importa GLB base → bake de transforms
+  (tudo em mesh data, sem hierarquia) → **recolor HSV por máscaras** (brancos=casco,
+  mint=capo/panel, coral=acentos, azul-céu=esportivas) com op `tint`/`set` e **`vref`**
+  (escala o brilho pelo tom alvo preservando sombreado) → escala p/ comprimento real
+  do produto (nomes em pés × 0,3048) → normaliza (XY centrado, min z=0) → render 2 ângulos
+  → export GLB. CONFIG: `TESTS` (7 variantes de teste) + `PRODUCTS` (os 29).
+- Uso: `blender --background --factory-startup --python variant_forge.py -- all <outdir> PRODUCTS:ALL`
+
+### Bases escolhidas (todas CC0 1.0, download direto sem login, Grab3D)
+- **grab3d jet-ski** (13,2k tris, 2K texturas) → 10 Sea-Doos
+- **grab3d motorboat** (15,2k tris) → 10 lanchas open (Ventura/Mestra/Focker 222)
+- **grab3d speedboat** (19,6k tris, 2 motores de popa) → 6 esportivas (Triton Open Sport,
+  Focker 255 GTO, Ventura 250, FS 275, Focker Black, Mestra 230)
+- **grab3d yacht** (23,8k tris, flybridge) → 2 cabinadas (Focker 230 Cabinada, FS 230 Scappare)
+- Reprovados: 3dassets.dev PWCs (cores lisas), Innerscene PWC (vintage, 88k tris/5MB),
+  Innerscene speedboat (10,6MB), Grab3D fishing-boat (não é passeio).
+
+### Resultado
+- **29 GLBs em `public/models/`** (1,4–3,0 MB cada, 56,8 MB total), 29/29 paths válidos.
+- Cores por produto: navy/vermelho/teal/forest/burgô/sand/laranja/grafite/midnight…
+  hood/acento por produto (ex.: Explorer Pro = graphite+laranja, Wake Pro = navy+amarelo,
+  RXT-X = vermelho/branco, Focker 230 Black = graphite+bordô).
+- **Viewer**: fotos são o padrão (`mode` inicia `'2d'`), 3D opt-in via botão; nota de
+  "modelo 3D ilustrativo" no ProductDetail.
+
+### Bugs da sessão (para não repetir)
+1. **`set` sem `vref`** — cores escuras (navy/graphite/midnight) aplicadas sobre pixels
+   claros preservavam o brilho original → tudo saía PASTEL (jetski "navy" = azul-claro).
+   Correção: `new_v = V_orig × (V_alvo / vref)`, vref = V típico da área de origem.
+2. **`tint` comprime cor** — navy vs graphite ficavam indistintos no motorboat
+   (multiply sobre textura levemente cinza). Trocado para `set` + cores saturadas.
+3. Amarelo `(0.92,0.75,0.05)` renderiza pêssego — amarelo de verdade precisa G≈R
+   `(0.95,0.90,0.10)`.
+4. Blender reencoda texturas JPEG→PNG no export GLB (arquivos ~2× maiores que o source).
+
+### Validação desta sessão
+- ✅ `npm run build` (6,4s, sem erros)
+- ✅ `npm run lint` (oxlint, zero)
+- ✅ node import: 29/29 `model3d` únicos com GLB em disco
+- ✅ vistoria visual de 16+ renders (todas as famílias de cor)
+- Pendente: otimização opcional de texturas (gltf-transform/webp) — GLBs hoje 1,4–3,0 MB.
+
+---
+
 ## Data: 11/11/2026 (sessão 3 — Modelos 3D + Vistoria mobile)
 
 ### FASE 3D CONCLUÍDA — modelos 3D para TODOS os 29 produtos

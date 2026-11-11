@@ -331,6 +331,12 @@ export default function ProductDetail() {
                 {/* 3D Viewer Section */}
                 <div className="product-detail__3d-section">
                   <Product3DViewer product={product} />
+                  {product.model3d && (
+                    <p className="product-detail__3d-note">
+                      Modelo 3D ilustrativo (genérico) — cores aproximadas. Consulte as fotos
+                      para ver o item real anunciado.
+                    </p>
+                  )}
                 </div>
               </div>
 

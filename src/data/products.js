@@ -1214,7 +1214,8 @@ export const products = [
   }
 ];
 
-// Modelos 3D: cada produto usa o GLB com o mesmo slug (gerado no Blender, public/models).
+// Modelos 3D: cada produto usa o GLB com o mesmo slug (variantes recoloridas no Blender, public/models).
+// Bases CC0 (Grab3D) recoloridas via tools/blender/variant_forge.py — genéricos ilustrativos.
 // Preenchido aqui em um unico lugar porque os literais acima nao veem o campo slug.
 for (const p of products) {
   p.model3d = '/models/' + p.slug + '.glb';

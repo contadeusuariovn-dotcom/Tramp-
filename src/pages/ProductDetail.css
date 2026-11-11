@@ -256,6 +256,13 @@
   overflow: hidden;
 }
 
+.product-detail__3d-note {
+  margin-top: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #6b7280);
+  line-height: 1.4;
+}
+
 /* ========================================
    PRODUCT INFO
    ======================================== */

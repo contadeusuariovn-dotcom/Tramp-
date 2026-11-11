@@ -2,8 +2,8 @@
  * Product3DViewer Component
  * Lancha Jet Quadriciclo
  *
- * Visualizador de modelos 3D (GLB paramétricos gerados no Blender) com
- * fallback automático para a galeria de fotos.
+ * Visualizador de modelos 3D (GLB) com a galeria de fotos como padrao.
+ * O modo 3D e opt-in via botao "3D" na toolbar.
  *
  * - Canvas react-three-fiber + OrbitControls (drei)
  * - Iluminacao própria (ambient/hemi/directional) + ContactShadows — sem HDRI/CDN
@@ -247,7 +247,8 @@ function ProductImageGallery({ product, currentImageIndex, setCurrentImageIndex 
 /* ------------------------------------------------------------------ */
 
 export default function Product3DViewer({ product, className = '' }) {
-  const [mode, setMode] = useState(product.model3d ? '3d' : '2d');
+  // Fotos primeiro: 3D fica opt-in via botao (nao abre por padrao)
+  const [mode, setMode] = useState('2d');
   const [failed, setFailed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
